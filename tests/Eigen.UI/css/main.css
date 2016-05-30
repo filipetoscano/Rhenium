@@ -1,1 +1,6 @@
-﻿/* main css */
+﻿
+[v-cloak] {
+    display: none;
+}
+
+/* main css */

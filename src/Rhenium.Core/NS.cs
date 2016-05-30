@@ -4,6 +4,9 @@ namespace Rhenium
 {
     public static class NS
     {
+        public static readonly XNamespace R = "urn:rhenium";
+        public static readonly XNamespace Rhenium = "urn:rhenium";
+
         public static readonly XNamespace F = "urn:rhenium-flow";
         public static readonly XNamespace Flow = "urn:rhenium-flow";
 

@@ -8,6 +8,6 @@ namespace Rhenium
 
     public interface IRenderer<T> : IRenderer
     {
-        void Render( HttpResponse response, T data );
+        void Render( HttpContext context, T data );
     }
 }

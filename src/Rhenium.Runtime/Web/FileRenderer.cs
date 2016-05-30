@@ -5,23 +5,23 @@ namespace Rhenium.Runtime.Web
 {
     public class FileRenderer : IRenderer<FileDocument>
     {
-        public void Render( HttpResponse response, FileDocument data )
+        public void Render( HttpContext context, FileDocument data )
         {
             #region Validations
 
-            if ( response == null )
-                throw new ArgumentNullException( nameof( response ) );
+            if ( context == null )
+                throw new ArgumentNullException( nameof( context ) );
 
             if ( data == null )
                 throw new ArgumentNullException( nameof( data ) );
 
             #endregion
 
-            response.StatusCode = 200;
-            response.ContentType = "application/octet-stream";
-            response.Headers.Add( "Content-Disposition", "attachment; filename=" + data.Name );
+            context.Response.StatusCode = 200;
+            context.Response.ContentType = "application/octet-stream";
+            context.Response.Headers.Add( "Content-Disposition", "attachment; filename=" + data.Name );
 
-            response.BinaryWrite( data.Content );
+            context.Response.BinaryWrite( data.Content );
         }
     }
 }

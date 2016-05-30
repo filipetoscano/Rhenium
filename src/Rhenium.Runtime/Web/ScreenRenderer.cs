@@ -9,12 +9,12 @@ namespace Rhenium.Runtime.Web
 {
     public class ScreenRenderer : IRenderer<ScreenDocument>
     {
-        public void Render( HttpResponse response, ScreenDocument data )
+        public void Render( HttpContext context, ScreenDocument data )
         {
             #region Validations
 
-            if ( response == null )
-                throw new ArgumentNullException( nameof( response ) );
+            if ( context == null )
+                throw new ArgumentNullException( nameof( context ) );
 
             if ( data == null )
                 throw new ArgumentNullException( nameof( data ) );
@@ -45,12 +45,38 @@ namespace Rhenium.Runtime.Web
             /*
              * 
              */
+            string appPath = ToApplicationPath( context.Request );
+
+
+            /*
+             * 
+             */
+            UrlResolver r2 = new UrlResolver();
+
+            string ns = NS.R.NamespaceName;
+
             XsltArgumentList args = new XsltArgumentList();
+            args.AddParam( "ApplicationPath", ns, appPath );
 
-            response.StatusCode = 200;
-            response.ContentType = "text/html";
+            context.Response.StatusCode = 200;
+            context.Response.ContentType = "text/html";
 
-            xslt.Transform( data.Screen.CreateNavigator(), args, response.OutputStream );
+            XmlWriterSettings xws = xslt.OutputSettings.Clone();
+            xws.Indent = false;
+
+            using ( XmlWriter xw = XmlWriter.Create( context.Response.OutputStream, xws ) )
+            {
+                xslt.Transform( data.Screen.CreateNavigator(), args, xw, r2 );
+            }
+        }
+
+
+        private static string ToApplicationPath( HttpRequest request )
+        {
+            if ( request.ApplicationPath.EndsWith( "/", StringComparison.Ordinal ) == true )
+                return request.ApplicationPath;
+            else
+                return request.ApplicationPath + "/";
         }
     }
 }

@@ -38,6 +38,7 @@
 
         <WriteLinesToFile Overwrite="true" File="src\GlobalVersion.cs" Lines="$(versionInfo)" />
         <Exec Command=" nuget restore " />
+        <Exec Command=" bower install " WorkingDirectory="tests" />
         <MSBuild Projects="Rhenium.sln" Properties="Configuration=Release" />
     </Target>
 

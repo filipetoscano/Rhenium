@@ -50,7 +50,7 @@ namespace Rhenium.Runtime.Web
              * 
              */
             IRenderer<ScreenDocument> renderer = new ScreenRenderer();
-            renderer.Render( context.Response, (ScreenDocument) result);
+            renderer.Render( context, (ScreenDocument) result);
         }
     }
 }
