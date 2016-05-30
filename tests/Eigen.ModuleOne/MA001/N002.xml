@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screen xmlns="urn:rhenium-screen"
+        xmlns:d="urn:rhenium-data"
+        xmlns:l="urn:rhenium-localization"
+        xmlns:v="urn:rhenium-validation">
+
+    <canvas>
+        <string l:label="Login" input="true">
+            <v:required />
+        </string>
+
+        <password l:label="Password" input="true">
+            <v:required />
+        </password>
+    </canvas>
+</screen>

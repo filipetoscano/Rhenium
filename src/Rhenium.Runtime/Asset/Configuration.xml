@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns="urn:yttrium/vs/config">
+
+    <section name="rhenium/resolver" type="ResolverConfiguration">
+        <enum name="using" as="ResolveUsing" type="ResolverMethod" />
+        
+        <repeater name="sources">
+            <item type="ResolverSource">
+                <string name="name" key="true" />
+                <string name="directory" />
+                <string name="assembly" />
+            </item>
+        </repeater>
+    </section>
+
+</configuration>
