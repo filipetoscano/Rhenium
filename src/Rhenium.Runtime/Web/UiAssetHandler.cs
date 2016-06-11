@@ -64,20 +64,16 @@ namespace Rhenium.Runtime.Web
                 return;
             }
 
-            string content;
-
-            using ( StreamReader sr = new StreamReader( stream ) )
-            {
-                content = sr.ReadToEnd();
-            }
-
 
             /*
              * 
              */
             context.Response.StatusCode = 200;
             context.Response.ContentType = MimeTypes.List[ extension.Substring( 1 ) ];
-            context.Response.Write( content );
+
+            stream.CopyTo( context.Response.OutputStream );
+            stream.Flush();
+            stream.Dispose();
         }
 
 
