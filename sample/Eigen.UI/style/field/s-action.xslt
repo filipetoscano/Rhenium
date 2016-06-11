@@ -10,13 +10,13 @@
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~
-    ~ s:actionGroup/
+    ~ Action.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xsl:template match=" s:actionGroup " mode="s:layout">
-        <div class="s-actionGroup">
-            <xsl:apply-templates select=" s:action " mode="s:layout" />
-        </div>
+    <xsl:template match=" s:action " mode="s:layout">
+        <button>
+            <xsl:value-of select=" @l:label " />
+        </button>
     </xsl:template>
 
 </xsl:stylesheet>

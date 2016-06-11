@@ -13,10 +13,10 @@
     ~ Display.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xsl:template match=" s:string ">
+    <xsl:template match=" s:string " mode="s:value">
         <span>
             <xsl:text>{{ </xsl:text>
-            <xsl:value-of select=" d:value " />
+            <xsl:value-of select=" @d:value " />
             <xsl:text> }}</xsl:text>
         </span>
     </xsl:template>
@@ -27,10 +27,10 @@
     ~ Input.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xsl:template match=" s:string[ @input = 'true' ] ">
+    <xsl:template match=" s:string[ @input = 'true' ] " mode="s:value">
         <input type="text">
             <xsl:attribute name="v-model">
-                <xsl:value-of select=" d:value " />
+                <xsl:value-of select=" @d:value " />
             </xsl:attribute>
         </input>
     </xsl:template>

@@ -29,7 +29,7 @@
                     </xsl:choose>
                 </xsl:variable>
 
-                <xsl:element name="{ elementName }">
+                <xsl:element name="{ $elementName }">
                     <xsl:attribute name="data-ltoken">
                         <xsl:value-of select=" @l:label "/>
                     </xsl:attribute>

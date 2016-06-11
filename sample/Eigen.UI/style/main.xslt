@@ -15,7 +15,7 @@
     <xsl:param name="r:AssetBundle" select=" 'false' " />
     <xsl:variable name="r:AssetPath">
         <xsl:value-of select=" $r:ApplicationPath " />
-        <xsl:text>resx/ui</xsl:text>
+        <xsl:text>rex/ui</xsl:text>
     </xsl:variable>
 
     <!-- Layout -->
@@ -25,6 +25,7 @@
     <xsl:include href="layout/s-fieldset.xslt" />
 
     <!-- Fields -->
+    <xsl:include href="field/s-action.xslt" />
     <xsl:include href="field/s-currency.xslt" />
     <xsl:include href="field/s-date.xslt" />
     <xsl:include href="field/s-decimal.xslt" />
@@ -44,34 +45,31 @@
                 <title></title>
 
                 <link rel="stylesheet" href="{ $r:AssetPath }/css/main.css" />
-                <link rel="icon" href="{ $r:AssetPath }/js/favicon-62.png" sizes="62x62" type="image/png" />
+                <link rel="icon" href="{ $r:AssetPath }/img/favicon-62.png" sizes="62x62" type="image/png" />
             </head>
             <body>
                 <div id="TheApp" v-cloak="">
                     <xsl:apply-templates select=" s:canvas " mode="s:layout" />
+
+                    <pre>{{ $data | json }}</pre>
                 </div>
 
                 <xsl:choose>
                     <xsl:when test=" not( $r:AssetBundle = 'true' ) ">
-                        <script src="{ $r:ApplicationPath }/vnd/vue/dist/vue.min.js">
+                        <script src="{ $r:AssetPath }/vnd/vue/dist/vue.min.js">
                             <xsl:text></xsl:text>
                         </script>
                     </xsl:when>
 
                     <xsl:otherwise>
-                        <script src="{ $r:ApplicationPath }/js/bundle.js">
+                        <script src="{ $r:AssetPath }/js/bundle.js">
                             <xsl:comment></xsl:comment>
                         </script>
                     </xsl:otherwise>
                 </xsl:choose>
 
                 <script>
-                    var demo = new Vue({
-                    el: '#TheApp',
-                    data: {
-                    message: ''
-                    }
-                    })
+                    var demo = new Vue({el: '#TheApp', data: {}});
                 </script>
             </body>
         </html>
