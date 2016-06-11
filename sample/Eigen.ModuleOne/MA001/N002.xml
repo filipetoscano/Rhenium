@@ -5,12 +5,43 @@
         xmlns:v="urn:rhenium-validation">
 
     <canvas>
-        <string l:label="Login" input="true">
+        <integer l:label="Integer" input="true" d:value="fint">
             <v:required />
+            <v:positive />
+            <v:range min="5" max="10" />
+        </integer>
+
+        <decimal l:label="Decimal" input="true" d:value="fdec">
+            <v:required />
+            <v:decimal digits="2" />
+            <v:range min="5" max="10" />
+        </decimal>
+
+        <currency l:label="Currency" input="true" d:value="fcur">
+            <v:required />
+            <v:range min="5" max="10" />
+        </currency>
+
+        <date l:label="Date" input="true" d:value="fdate">
+            <v:required />
+            <v:range min="2016-01-01" max="2016-12-31" />
+            <v:workingDay />
+            <v:dayOfWeek is="Monday" />
+        </date>
+
+        <string l:label="String" input="true" d:value="fstring">
+            <v:required />
+            <v:length min="5" max="10" />
+            <v:pattern regex="\w+" />
         </string>
 
-        <password l:label="Password" input="true">
+        <password l:label="Password" input="true" d:value="fpassword">
             <v:required />
+            <v:requires digits="true" upperCase="true" lowerCase="true" />
         </password>
+
+        <actionGroup>
+            <action l:label="Ok" event="ok" />
+        </actionGroup>
     </canvas>
 </screen>

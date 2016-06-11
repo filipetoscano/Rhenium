@@ -42,12 +42,43 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-integer.xslt" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="css\main.css" />
     <EmbeddedResource Include="js\main.js" />
-    <EmbeddedResource Include="style\other.xslt" />
     <EmbeddedResource Include="style\main.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="img\favicon-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\layout\s-field.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\layout\s-fieldset.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\layout\s-actionGroup.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\layout\s-canvas.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-string.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-date.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-decimal.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-currency.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-password.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

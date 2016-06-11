@@ -10,10 +10,28 @@
 
     <xsl:output method="html" />
 
-    <xsl:include href="other.xslt" />
-
+    <!-- Params -->
     <xsl:param name="r:ApplicationPath" select=" '/Eigen.Web/' " />
     <xsl:param name="r:AssetBundle" select=" 'false' " />
+    <xsl:variable name="r:AssetPath">
+        <xsl:value-of select=" $r:ApplicationPath " />
+        <xsl:text>resx/ui</xsl:text>
+    </xsl:variable>
+
+    <!-- Layout -->
+    <xsl:include href="layout/s-actionGroup.xslt" />
+    <xsl:include href="layout/s-canvas.xslt" />
+    <xsl:include href="layout/s-field.xslt" />
+    <xsl:include href="layout/s-fieldset.xslt" />
+
+    <!-- Fields -->
+    <xsl:include href="field/s-currency.xslt" />
+    <xsl:include href="field/s-date.xslt" />
+    <xsl:include href="field/s-decimal.xslt" />
+    <xsl:include href="field/s-integer.xslt" />
+    <xsl:include href="field/s-password.xslt" />
+    <xsl:include href="field/s-string.xslt" />
+
 
     <xsl:template match=" s:screen ">
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
@@ -25,23 +43,23 @@
 
                 <title></title>
 
-                <link rel="stylesheet" href="{ $r:ApplicationPath }rex/ui/css/main.css" />
+                <link rel="stylesheet" href="{ $r:AssetPath }/css/main.css" />
+                <link rel="icon" href="{ $r:AssetPath }/js/favicon-62.png" sizes="62x62" type="image/png" />
             </head>
             <body>
-                <div id="demo" v-cloak="">
-                    <input v-model="message" />
-                    <p>{{message}}</p>
+                <div id="TheApp" v-cloak="">
+                    <xsl:apply-templates select=" s:canvas " mode="s:layout" />
                 </div>
 
                 <xsl:choose>
                     <xsl:when test=" not( $r:AssetBundle = 'true' ) ">
-                        <script src="{ $r:ApplicationPath }rex/ui/vnd/vue/dist/vue.min.js">
+                        <script src="{ $r:ApplicationPath }/vnd/vue/dist/vue.min.js">
                             <xsl:text></xsl:text>
                         </script>
                     </xsl:when>
 
                     <xsl:otherwise>
-                        <script src="{ $r:ApplicationPath }rex/ui/js/bundle.js">
+                        <script src="{ $r:ApplicationPath }/js/bundle.js">
                             <xsl:comment></xsl:comment>
                         </script>
                     </xsl:otherwise>
@@ -49,7 +67,7 @@
 
                 <script>
                     var demo = new Vue({
-                    el: '#demo',
+                    el: '#TheApp',
                     data: {
                     message: ''
                     }

@@ -6,19 +6,17 @@
     xmlns:l="urn:rhenium-localization"
     xmlns:v="urn:rhenium-validation"
     exclude-result-prefixes="msxsl s d l v">
-    
-    <xsl:output method="html" indent="yes"/>
 
-    <xsl:template match=" s:screen ">
-        <html>
-            <head>
-                <title>
-                </title>
-            </head>
-            <body>
-                <div>Hello world!</div>
-            </body>
-        </html>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~
+    ~ s:fieldset/
+    ~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xsl:template match=" s:fieldset " mode="s:layout">
+        <div>
+            <xsl:apply-templates select=" * " mode="s:layout" />
+        </div>
     </xsl:template>
     
 </xsl:stylesheet>
