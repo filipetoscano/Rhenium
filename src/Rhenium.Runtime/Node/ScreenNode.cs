@@ -43,6 +43,7 @@ namespace Rhenium.Runtime.Node
              */
             ScreenDocument doc = new ScreenDocument();
             doc.Screen = XDocument.Load( stream );
+            stream.Dispose();
 
             return doc;
         }
