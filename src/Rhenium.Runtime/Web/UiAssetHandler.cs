@@ -68,6 +68,9 @@ namespace Rhenium.Runtime.Web
             /*
              * 
              */
+            if ( extension == ".woff2" )
+                extension = ".woff";
+
             context.Response.StatusCode = 200;
             context.Response.ContentType = MimeTypes.List[ extension.Substring( 1 ) ];
 
@@ -95,6 +98,12 @@ namespace Rhenium.Runtime.Web
                 return true;
 
             if ( extension == ".ttf" )
+                return true;
+
+            if ( extension == ".woff" )
+                return true;
+
+            if ( extension == ".woff2" )
                 return true;
 
             return false;
