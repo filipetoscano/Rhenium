@@ -7,7 +7,9 @@ src/**/Errors.cs
 src/**/Exceptions.cs
 src/**/bin/
 src/**/obj/
+sample/**/bin/
+sample/**/obj/
+sample/Eigen.UI/vnd/
 tests/**/bin/
 tests/**/obj/
 packages/
-tests/Eigen.UI/vnd/
