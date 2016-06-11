@@ -2,46 +2,85 @@
 <screen xmlns="urn:rhenium-screen"
         xmlns:d="urn:rhenium-data"
         xmlns:l="urn:rhenium-localization"
-        xmlns:v="urn:rhenium-validation">
+        xmlns:v="urn:rhenium-validation"
+        id="MA001_N002">
 
     <canvas>
-        <integer l:label="Integer" input="true" d:value="fint">
-            <v:required />
-            <v:positive />
-            <v:range min="5" max="10" />
-        </integer>
+        <fieldset>
+            <column>
+                <bool input="true" d:value="fbool">
+                    <text l:value="Disabled?" />
+                </bool>
 
-        <decimal l:label="Decimal" input="true" d:value="fdec">
-            <v:required />
-            <v:decimal digits="2" />
-            <v:range min="5" max="10" />
-        </decimal>
+                <bool l:label="Boolean" input="true" style="radio" d:value="fbool">
+                    <text l:true="Disabled" l:false="Enabled" />
+                </bool>
 
-        <currency l:label="Currency" input="true" d:value="fcur">
-            <v:required />
-            <v:range min="5" max="10" />
-        </currency>
+                <currency l:label="Currency" input="true" l:placeholder="Money!" d:disabled="fbool" d:value="fcur">
+                    <v:required />
+                    <v:range min="5" max="10" />
+                </currency>
 
-        <date l:label="Date" input="true" d:value="fdate">
-            <v:required />
-            <v:range min="2016-01-01" max="2016-12-31" />
-            <v:workingDay />
-            <v:dayOfWeek is="Monday" />
-        </date>
+                <date l:label="Date" input="true" l:placeholder="When?" d:disabled="fbool" d:value="fdate">
+                    <v:required />
+                    <v:range min="2016-01-01" max="2016-12-31" />
+                    <v:workingDay />
+                    <v:dayOfWeek is="Monday" />
+                </date>
 
-        <string l:label="String" input="true" d:value="fstring">
-            <v:required />
-            <v:length min="5" max="10" />
-            <v:pattern regex="\w+" />
-        </string>
+                <decimal l:label="Decimal" input="true" l:placeholder="Decimal?" d:units="fstring" d:disabled="fbool" d:value="fdec">
+                    <v:required />
+                    <v:decimal digits="2" />
+                    <v:range min="5" max="10" />
+                </decimal>
 
-        <password l:label="Password" input="true" d:value="fpassword">
-            <v:required />
-            <v:requires digits="true" upperCase="true" lowerCase="true" />
-        </password>
+                <integer l:label="Integer" l:placeholder="Number?" input="true" d:disabled="fbool" d:value="fint" d:units="fstring">
+                    <v:required />
+                    <v:positive />
+                    <v:range min="5" max="10" />
+                </integer>
 
-        <actionGroup>
-            <action l:label="Ok" event="ok" />
+                <list l:label="List" input="true" d:disabled="fbool" d:value="flist">
+                    <v:required />
+                </list>
+
+                <password l:label="Password" input="true" l:placeholder="Secret?" d:disabled="fbool" d:value="fpassword">
+                    <v:required />
+                    <v:requires digits="true" upperCase="true" lowerCase="true" />
+                </password>
+
+                <string l:label="String" input="true" l:placeholder="String?" d:disabled="fbool" d:value="fstring">
+                    <v:required />
+                    <v:length min="5" max="10" />
+                    <v:pattern regex="\w+" />
+                </string>
+
+                <string l:label="String" input="true" l:placeholder="Multiline string?" multiline="true" d:disabled="fbool" d:value="fstring">
+                    <v:required />
+                    <v:length min="5" max="10" />
+                    <v:pattern regex="\w+" />
+                </string>
+            </column>
+
+            <column>
+                <bool l:label="Boolean" d:value="fbool">
+                    <text l:true="Enabled" l:false="Disabled" />
+                </bool>
+                <currency l:label="Currency" d:value="fcur" />
+                <date l:label="Date" d:value="fdate" />
+                <decimal l:label="Decimal" d:value="fdec" d:units="fstring" />
+                <integer l:label="Integer" d:value="fint" d:units="fstring" />
+                <list l:label="List" d:value="flist" />
+                <password l:label="Password" d:value="fpassword" />
+                <string l:label="String" d:value="fstring" />
+                <string l:label="String" multiline="true" d:value="fstring" />
+            </column>
+        </fieldset>
+
+        <actionGroup docked="true">
+            <action l:label="Save record" event="ok" icon="save" />
+            <action l:label="Secondary" event="ok" icon="life-ring" style="secondary" />
+            <action l:label="Tertiary" event="ok" icon="paw" style="link" />
         </actionGroup>
     </canvas>
 </screen>

@@ -3,4 +3,45 @@
     display: none;
 }
 
+
+.s-currency {
+    text-align: right;
+}
+
+
+.s-actionGroup {
+    background-color: #AAA;
+    padding: 10px 20px;
+}
+
+.s-actionGroup .btn {
+    margin-right: 10px;
+}
+
+.s-actionGroup .btn.btn-link {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.s-actionGroup.s-docked {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.s-actionGroup button {
+    min-width: 80px;
+}
+
+input[type=date] {
+    width: 100% !important;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
 /* main css */

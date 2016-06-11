@@ -80,6 +80,23 @@
   <ItemGroup>
     <EmbeddedResource Include="style\field\s-password.xslt" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-action.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-list.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-accept.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="style\field\s-bool.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\s-currency.js" />
+    <Content Include="js\s-decimal.js" />
+    <Content Include="js\s-date.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

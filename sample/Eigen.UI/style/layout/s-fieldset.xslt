@@ -18,5 +18,54 @@
             <xsl:apply-templates select=" * " mode="s:layout" />
         </div>
     </xsl:template>
-    
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~
+    ~ s:fieldset/
+    ~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xsl:template match=" s:fieldset[ s:column ] " mode="s:layout">
+        <xsl:variable name="span">
+            <xsl:choose>
+                <xsl:when test=" count( s:column ) = 1 ">
+                    <xsl:text>12</xsl:text>
+                </xsl:when>
+                <xsl:when test=" count( s:column ) = 2 ">
+                    <xsl:text>6</xsl:text>
+                </xsl:when>
+                <xsl:when test=" count( s:column ) = 3 ">
+                    <xsl:text>4</xsl:text>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+
+        <div class="row">
+            <xsl:apply-templates select=" s:column " mode="s:layout">
+                <xsl:with-param name="s:span" select=" $span " />
+            </xsl:apply-templates>
+        </div>
+    </xsl:template>
+
+    <xsl:template match=" s:column " mode="s:layout">
+        <xsl:param name="s:span" />
+
+        <div>
+            <xsl:attribute name="class">
+                <xsl:text>col-md-</xsl:text>
+
+                <xsl:choose>
+                    <xsl:when test=" @span ">
+                        <xsl:value-of select=" @span " />
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select=" $s:span " />
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+
+            <xsl:apply-templates select=" * " mode="s:layout" />
+        </div>
+    </xsl:template>
+
 </xsl:stylesheet>

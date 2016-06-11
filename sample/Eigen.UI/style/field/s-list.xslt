@@ -14,7 +14,7 @@
     ~ Display.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xsl:template match=" s:password " mode="s:value">
+    <xsl:template match=" s:list " mode="s:value">
         <p class="form-control-static">
             <xsl:text>{{ </xsl:text>
             <xsl:value-of select=" @d:value " />
@@ -28,17 +28,21 @@
     ~ Input.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xsl:template match=" s:password[ @input = 'true' ] " mode="s:value">
+    <xsl:template match=" s:list[ @input = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <input type="password" class="form-control" id="{ $d:path }{ generate-id(.) }">
+        <select class="form-control" id="{ $d:path }{ generate-id(.) }">
             <xsl:attribute name="v-model">
                 <xsl:value-of select=" @d:value " />
             </xsl:attribute>
 
-            <xsl:call-template name="s:placeholder" />
             <xsl:call-template name="s:disabled" />
-        </input>
+
+            <option value="" selected="">-- none --</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
     </xsl:template>
 
 </xsl:stylesheet>

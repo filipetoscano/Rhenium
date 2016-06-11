@@ -14,7 +14,17 @@
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xsl:template match=" s:canvas " mode="s:layout">
-        <xsl:apply-templates select=" * " mode="s:layout" />
+        <div class="container">
+            <xsl:if test=" s:actionGroup[ @docked = 'true' ] ">
+                <xsl:attribute name="style">margin-bottom: 50px;</xsl:attribute>
+            </xsl:if>
+            
+            <xsl:apply-templates select=" * " mode="s:layout" />
+
+            <pre>{{ $data | json }}</pre>
+        </div>
+
+        <xsl:apply-templates select=" s:actionGroup[ @docked = 'true' ] " mode="s:docked" />
     </xsl:template>
 
 
