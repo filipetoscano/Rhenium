@@ -6,7 +6,6 @@ namespace Rhenium.Runtime
     {
         public ScreenDocument()
         {
-            this.Screen = new XDocument( new XElement( NS.S + "screen" ) );
         }
 
 
