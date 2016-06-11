@@ -4,6 +4,7 @@ using System.Web;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
+using Platinum.Configuration;
 
 namespace Rhenium.Runtime.Web
 {
@@ -62,7 +63,7 @@ namespace Rhenium.Runtime.Web
             context.Response.ContentType = "text/html";
 
             XmlWriterSettings xws = xslt.OutputSettings.Clone();
-            xws.Indent = false;
+            xws.Indent = AppConfiguration.Get<bool>( "XsltIndent" );
 
             using ( XmlWriter xw = XmlWriter.Create( context.Response.OutputStream, xws ) )
             {
