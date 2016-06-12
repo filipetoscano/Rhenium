@@ -16,6 +16,9 @@ namespace Rhenium
         public static readonly XNamespace D = "urn:rhenium-data";
         public static readonly XNamespace Data = "urn:rhenium-data";
 
+        public static readonly XNamespace H = "urn:rhenium-data-hint";
+        public static readonly XNamespace DataHint = "urn:rhenium-data-hint";
+
         public static readonly XNamespace L = "urn:rhenium-localization";
         public static readonly XNamespace Locale = "urn:rhenium-localization";
 

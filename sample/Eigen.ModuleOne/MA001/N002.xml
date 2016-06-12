@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <screen xmlns="urn:rhenium-screen"
-        xmlns:d="urn:rhenium-data"
-        xmlns:l="urn:rhenium-localization"
-        xmlns:v="urn:rhenium-validation"
-        id="MA001_N002">
+    xmlns:d="urn:rhenium-data"
+    xmlns:h="urn:rhenium-data-hint"
+    xmlns:l="urn:rhenium-localization"
+    xmlns:v="urn:rhenium-validation"
+    id="MA001_N002">
 
     <canvas>
         <fieldset>
@@ -16,7 +17,7 @@
                     <text l:true="Disabled" l:false="Enabled" />
                 </bool>
 
-                <currency l:label="Currency" input="true" l:placeholder="Money!" d:disabled="fbool" d:value="fcur">
+                <currency l:label="Currency" input="true" l:placeholder="Money!" d:disabled="fbool" d:value="fcur" d:currency="fcurr">
                     <v:required />
                     <v:range min="5" max="10" />
                 </currency>
@@ -40,8 +41,19 @@
                     <v:range min="5" max="10" />
                 </integer>
 
-                <list l:label="List" input="true" d:disabled="fbool" d:value="flist">
+                <list l:label="List" input="true" d:disabled="fbool" d:value="fcurr">
                     <v:required />
+
+                    <options>
+                        <option l:label="Euro" value="EUR" />
+                        <option l:label="American Dollar" value="USD" />
+                        <option l:label="British Pound" value="GBP" />
+
+                        <group l:label="Deprecated">
+                            <option l:label="Portuguese Escudo" value="PTE" />
+                            <option l:label="Spanish Peseta" value="ESP" />
+                        </group>
+                    </options>
                 </list>
 
                 <password l:label="Password" input="true" l:placeholder="Secret?" d:disabled="fbool" d:value="fpassword">
@@ -49,13 +61,13 @@
                     <v:requires digits="true" upperCase="true" lowerCase="true" />
                 </password>
 
-                <string l:label="String" input="true" l:placeholder="String?" d:disabled="fbool" d:value="fstring">
+                <string l:label="String" input="true" l:placeholder="String?" d:disabled="fbool" d:value="fstring" h:value="person.name">
                     <v:required />
                     <v:length min="5" max="10" />
                     <v:pattern regex="\w+" />
                 </string>
 
-                <string l:label="String" input="true" l:placeholder="Multiline string?" multiline="true" d:disabled="fbool" d:value="fstring">
+                <string l:label="String" input="true" l:placeholder="Multiline string?" multiline="true" d:disabled="fbool" d:value="fstring" h:value="person.bio">
                     <v:required />
                     <v:length min="5" max="10" />
                     <v:pattern regex="\w+" />

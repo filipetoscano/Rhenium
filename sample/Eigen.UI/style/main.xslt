@@ -27,6 +27,7 @@
     <xsl:include href="layout/s-field.xslt" />
     <xsl:include href="layout/s-fieldset.xslt" />
     <xsl:include href="layout/s-repeater.xslt" />
+    <xsl:include href="layout/s-tabs.xslt" />
 
     <!-- Fields -->
     <xsl:include href="field/s-accept.xslt" />

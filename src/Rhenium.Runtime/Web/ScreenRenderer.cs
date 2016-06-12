@@ -5,20 +5,21 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using Platinum.Configuration;
+using Newtonsoft.Json;
 
 namespace Rhenium.Runtime.Web
 {
     public class ScreenRenderer : IRenderer<ScreenDocument>
     {
-        public void Render( HttpContext context, ScreenDocument data )
+        public void Render( HttpContext context, ScreenDocument screen )
         {
             #region Validations
 
             if ( context == null )
                 throw new ArgumentNullException( nameof( context ) );
 
-            if ( data == null )
-                throw new ArgumentNullException( nameof( data ) );
+            if ( screen == null )
+                throw new ArgumentNullException( nameof( screen ) );
 
             #endregion
 
@@ -46,6 +47,12 @@ namespace Rhenium.Runtime.Web
             /*
              * 
              */
+            string jsonData = JsonConvert.SerializeObject( screen.Data );
+
+
+            /*
+             * 
+             */
             string appPath = ToApplicationPath( context.Request );
 
 
@@ -58,6 +65,7 @@ namespace Rhenium.Runtime.Web
 
             XsltArgumentList args = new XsltArgumentList();
             args.AddParam( "ApplicationPath", ns, appPath );
+            args.AddParam( "ScreenData", NS.D.NamespaceName, jsonData );
 
             context.Response.StatusCode = 200;
             context.Response.ContentType = "text/html";
@@ -67,7 +75,7 @@ namespace Rhenium.Runtime.Web
 
             using ( XmlWriter xw = XmlWriter.Create( context.Response.OutputStream, xws ) )
             {
-                xslt.Transform( data.Screen.CreateNavigator(), args, xw, r2 );
+                xslt.Transform( screen.Screen.CreateNavigator(), args, xw, r2 );
             }
         }
 

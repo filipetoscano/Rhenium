@@ -28,6 +28,7 @@ namespace Rhenium.Runtime
             get { return null; }
         }
 
+
         object IEvent.Data
         {
             get { return this; }

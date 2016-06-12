@@ -96,6 +96,11 @@
     <Content Include="js\s-currency.js" />
     <Content Include="js\s-decimal.js" />
     <Content Include="js\s-date.js" />
+    <EmbeddedResource Include="style\layout\s-tabs.xslt" />
+    <EmbeddedResource Include="style\field\s-time.xslt" />
+    <EmbeddedResource Include="style\field\s-dateTime.xslt" />
+    <EmbeddedResource Include="style\field\s-table.xslt" />
+    <EmbeddedResource Include="style\layout\s-repeater.xslt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<screen xmlns="urn:rhenium-screen">
+<screen xmlns="urn:rhenium-screen"
+    xmlns:d="urn:rhenium-data"
+    xmlns:h="urn:rhenium-data-hint"
+    xmlns:l="urn:rhenium-localization"
+    xmlns:v="urn:rhenium-validation"
+    id="MA001_N004">
 
     <canvas>
-        
+        <table l:title="Table title">
+            <content d:item="$r" d:items="rows">
+                <date l:label="Date" d:value="$r.cdate" />
+                <string l:label="String" d:value="$r.cstring" />
+                <decimal l:label="Decimal" d:value="$r.cdecimal" />
+                <integer l:label="Integer" d:value="$r.cinteger" />
+            </content>
+        </table>
+
+        <repeater d:item="$r" d:items="rows">
+            <date l:label="Date" d:value="$r.cdate" />
+            <string l:label="String" d:value="$r.cstring" />
+            <decimal l:label="Decimal" d:value="$r.cdecimal" />
+            <integer l:label="Integer" d:value="$r.cinteger" />
+        </repeater>
+
+        <actionGroup docked="true">
+            <action l:label="Save record" event="ok" icon="save" />
+        </actionGroup>
     </canvas>
 </screen>
