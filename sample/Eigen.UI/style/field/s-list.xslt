@@ -31,7 +31,7 @@
     <xsl:template match=" s:list[ @input = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <select class="form-control" id="{ $d:path }{ generate-id(.) }">
+        <select class="s-list form-control" id="{ $d:path }{ generate-id(.) }">
             <xsl:attribute name="v-model">
                 <xsl:value-of select=" @d:value " />
             </xsl:attribute>

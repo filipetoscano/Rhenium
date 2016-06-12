@@ -31,7 +31,7 @@
     <xsl:template match=" s:string[ @input = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <input type="text" class="form-control" id="{ $d:path }{ generate-id(.) }">
+        <input type="text" class="s-string form-control" id="{ $d:path }{ generate-id(.) }">
             <xsl:attribute name="v-model">
                 <xsl:value-of select=" @d:value " />
             </xsl:attribute>
@@ -50,7 +50,7 @@
     <xsl:template match=" s:string[ @input = 'true' and @multiline = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <textarea type="text" class="form-control" id="{ $d:path }{ generate-id(.) }">
+        <textarea type="text" class="s-string form-control" id="{ $d:path }{ generate-id(.) }">
             <xsl:attribute name="v-model">
                 <xsl:value-of select=" @d:value " />
             </xsl:attribute>

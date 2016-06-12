@@ -31,7 +31,7 @@
     <xsl:template match=" s:password[ @input = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <input type="password" class="form-control" id="{ $d:path }{ generate-id(.) }">
+        <input type="password" class="s-password form-control" id="{ $d:path }{ generate-id(.) }">
             <xsl:attribute name="v-model">
                 <xsl:value-of select=" @d:value " />
             </xsl:attribute>

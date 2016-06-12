@@ -14,6 +14,49 @@
     ~ s:accept/.
     ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xsl:template match=" s:accept " mode="s:layout">
+        <xsl:param name="d:path" />
 
+        <div class="form-group row">
+            <label class="unselectable">
+                <input type="checkbox" id="{ $d:path }{ generate-id(.) }">
+                    <xsl:attribute name="v-model">
+                        <xsl:value-of select=" @d:value " />
+                    </xsl:attribute>
+                </input>
+
+                <xsl:if test=" s:text/@l:value ">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select=" s:text/@l:value "/>
+                </xsl:if>
+            </label>
+        </div>
+    </xsl:template>
+
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~
+    ~ s:accept/.
+    ~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xsl:template match=" s:accept[ @input = 'true' ] " mode="s:layout">
+        <xsl:param name="d:path" />
+
+        <div class="form-group row">
+            <label class="unselectable">
+                <input type="checkbox" id="{ $d:path }{ generate-id(.) }">
+                    <xsl:attribute name="v-model">
+                        <xsl:value-of select=" @d:value " />
+                    </xsl:attribute>
+                </input>
+
+                <xsl:if test=" s:text/@l:value ">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select=" s:text/@l:value "/>
+                </xsl:if>
+            </label>
+        </div>
+    </xsl:template>
 
 </xsl:stylesheet>

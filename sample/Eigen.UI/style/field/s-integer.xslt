@@ -32,7 +32,7 @@
         <xsl:param name="d:path" />
 
         <div class="input-group">
-            <input type="text" class="form-control" id="{ $d:path }{ generate-id(.) }">
+            <input type="text" class="s-integer form-control" id="{ $d:path }{ generate-id(.) }">
                 <xsl:attribute name="v-model">
                     <xsl:value-of select=" @d:value " />
                 </xsl:attribute>

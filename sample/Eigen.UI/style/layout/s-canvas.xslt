@@ -18,13 +18,17 @@
             <xsl:if test=" s:actionGroup[ @docked = 'true' ] ">
                 <xsl:attribute name="style">margin-bottom: 50px;</xsl:attribute>
             </xsl:if>
-            
-            <xsl:apply-templates select=" * " mode="s:layout" />
+
+            <xsl:apply-templates select=" * " mode="s:layout">
+                <xsl:with-param name="d:path" select=" '' " />
+            </xsl:apply-templates>
 
             <pre>{{ $data | json }}</pre>
         </div>
 
-        <xsl:apply-templates select=" s:actionGroup[ @docked = 'true' ] " mode="s:docked" />
+        <xsl:apply-templates select=" s:actionGroup[ @docked = 'true' ] " mode="s:docked">
+            <xsl:with-param name="d:path" select=" '' " />
+        </xsl:apply-templates>
     </xsl:template>
 
 

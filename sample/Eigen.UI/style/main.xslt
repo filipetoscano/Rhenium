@@ -25,6 +25,7 @@
     <xsl:include href="layout/s-canvas.xslt" />
     <xsl:include href="layout/s-field.xslt" />
     <xsl:include href="layout/s-fieldset.xslt" />
+    <xsl:include href="layout/s-repeater.xslt" />
 
     <!-- Fields -->
     <xsl:include href="field/s-accept.xslt" />
@@ -90,7 +91,7 @@
                         <script src="{ $r:AssetPath }/vnd/moment/min/moment.min.js" />
                         <script src="{ $r:AssetPath }/vnd/accountingjs/accounting.min.js" />
                         <script src="{ $r:AssetPath }/vnd/vue/dist/vue.min.js" />
-                        
+
                         <!-- Ours -->
                         <script src="{ $r:AssetPath }/js/s-currency.js" />
                         <script src="{ $r:AssetPath }/js/s-date.js" />
@@ -99,7 +100,13 @@
                 </xsl:choose>
 
                 <script>
-                    var demo = new Vue({el: '#TheApp', data: {}});
+                    var demo = new Vue({el: '#TheApp', data: {
+                    rows: [
+                    {fstr:'row 1', rows: [{fstr:'row 11'}] },
+                    {fstr:'row 2', rows: [{fstr:'row 22'}]},
+                    {fstr:'row 3', rows: [{fstr:'row 33'}]},
+                    ]
+                    }});
 
                     var Rhenium = {};
                     Rhenium.Number = {};

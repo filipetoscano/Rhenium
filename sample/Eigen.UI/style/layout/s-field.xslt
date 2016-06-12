@@ -56,7 +56,9 @@
             </div>
 
             <div class="col-sm-10">
-                <xsl:apply-templates select=" . " mode="s:value" />
+                <xsl:apply-templates select=" . " mode="s:value">
+                    <xsl:with-param name="d:path" select=" $d:path " />
+                </xsl:apply-templates>
 
                 <xsl:call-template name="s:description" />
             </div>
@@ -151,6 +153,5 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-
 
 </xsl:stylesheet>

@@ -49,7 +49,7 @@
         <xsl:param name="d:path" />
 
         <div class="input-group">
-            <input type="text" class="form-control" id="{ $d:path }{ generate-id(.) }">
+            <input type="text" class="s-decimal form-control" id="{ $d:path }{ generate-id(.) }">
                 <xsl:if test=" $r:IsMobile = 'true' ">
                     <xsl:attribute name="type">
                         <xsl:text>number</xsl:text>
