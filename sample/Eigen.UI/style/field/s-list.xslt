@@ -6,7 +6,8 @@
     xmlns:d="urn:rhenium-data"
     xmlns:l="urn:rhenium-localization"
     xmlns:v="urn:rhenium-validation"
-    exclude-result-prefixes="msxsl r s d l v">
+    xmlns:v-bind="urn:vue"
+    exclude-result-prefixes="msxsl r s d l v v-bind">
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,11 +39,38 @@
 
             <xsl:call-template name="s:disabled" />
 
-            <option value="" selected="">-- none --</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option v-bind:value="null" selected="">-- none --</option>
+
+            <xsl:choose>
+                <xsl:when test=" @d:options ">
+
+                </xsl:when>
+
+                <xsl:when test=" s:options ">
+                    <xsl:apply-templates select=" s:options/* " mode="s:list-options" />
+                </xsl:when>
+            </xsl:choose>
         </select>
+    </xsl:template>
+
+
+    <xsl:template match=" s:group " mode="s:list-options">
+        <optgroup>
+            <xsl:attribute name="label">
+                <!-- TODO -->
+                <xsl:value-of select=" @l:label " />
+            </xsl:attribute>
+
+            <xsl:apply-templates select=" * "  mode="s:list-options" />
+        </optgroup>
+    </xsl:template>
+
+
+    <xsl:template match=" s:option " mode="s:list-options">
+        <option value="{ @value }">
+            <!-- TODO -->
+            <xsl:value-of select=" @l:label " />
+        </option>
     </xsl:template>
 
 </xsl:stylesheet>

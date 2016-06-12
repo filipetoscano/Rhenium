@@ -12,6 +12,7 @@
     <xsl:output method="html" />
 
     <!-- Params -->
+    <xsl:param name="d:ScreenData" select=" '{}' " />
     <xsl:param name="r:ApplicationPath" select=" '/Eigen.Web/' " />
     <xsl:param name="r:AssetBundle" select=" 'false' " />
     <xsl:param name="r:IsMobile" select=" 'false' " />
@@ -33,11 +34,14 @@
     <xsl:include href="field/s-bool.xslt" />
     <xsl:include href="field/s-currency.xslt" />
     <xsl:include href="field/s-date.xslt" />
+    <xsl:include href="field/s-dateTime.xslt" />
     <xsl:include href="field/s-decimal.xslt" />
     <xsl:include href="field/s-integer.xslt" />
     <xsl:include href="field/s-list.xslt" />
     <xsl:include href="field/s-password.xslt" />
     <xsl:include href="field/s-string.xslt" />
+    <xsl:include href="field/s-table.xslt" />
+    <xsl:include href="field/s-time.xslt" />
 
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,6 +72,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <link rel="stylesheet" href="{ $r:AssetPath }/vnd/bootstrap/dist/css/bootstrap.min.css" />
+                        <link rel="stylesheet" href="{ $r:AssetPath }/vnd/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
                         <link rel="stylesheet" href="{ $r:AssetPath }/vnd/font-awesome/css/font-awesome.min.css" />
                         <link rel="stylesheet" href="{ $r:AssetPath }/css/main.css" />
                     </xsl:otherwise>
@@ -82,13 +87,15 @@
 
                 <xsl:choose>
                     <xsl:when test=" $r:AssetBundle = 'true' ">
-                        <script src="{ $r:AssetPath }/js/bundle.js">
-                            <xsl:text />
-                        </script>
+                        <script src="{ $r:AssetPath }/js/bundle.js" />
                     </xsl:when>
 
                     <xsl:otherwise>
+                        <script src="{ $r:AssetPath }/vnd/jquery/dist/jquery.min.js" />
                         <script src="{ $r:AssetPath }/vnd/moment/min/moment.min.js" />
+                        <script src="{ $r:AssetPath }/vnd/tether/dist/js/tether.min.js" />
+                        <script src="{ $r:AssetPath }/vnd/bootstrap/dist/js/bootstrap.min.js" />
+                        <script src="{ $r:AssetPath }/vnd/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" />
                         <script src="{ $r:AssetPath }/vnd/accountingjs/accounting.min.js" />
                         <script src="{ $r:AssetPath }/vnd/vue/dist/vue.min.js" />
 
@@ -100,19 +107,33 @@
                 </xsl:choose>
 
                 <script>
-                    var demo = new Vue({el: '#TheApp', data: {
-                    rows: [
-                    {fstr:'row 1', rows: [{fstr:'row 11'}] },
-                    {fstr:'row 2', rows: [{fstr:'row 22'}]},
-                    {fstr:'row 3', rows: [{fstr:'row 33'}]},
-                    ]
-                    }});
-
                     var Rhenium = {};
                     Rhenium.Number = {};
                     Rhenium.Number.Thousand = ' ';
                     Rhenium.Number.Decimal = ',';
+                    Rhenium.Currency = {};
+                    Rhenium.Currency.Default = 'EUR';
 
+                    var demo = new Vue({el: '#TheApp', data: <xsl:value-of select=" $d:ScreenData "  /> });
+
+                    /* todo */
+                    $('.s-date-datepicker').datetimepicker(
+                    {
+                    useCurrent: false,
+                    format: 'YYYY-MM-DD',
+                    calendarWeeks: true,
+                    icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-clock-o',
+                    clear: 'fa fa-trash-o',
+                    close: 'fa fa-times'
+                    }
+                    });
                 </script>
             </body>
         </html>

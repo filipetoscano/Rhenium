@@ -31,7 +31,7 @@
     <xsl:template match=" s:date[ @input = 'true' ] " mode="s:value">
         <xsl:param name="d:path" />
 
-        <div class="input-group">
+        <div class="input-group s-date-datepicker">
             <input type="text" class="s-date form-control" id="{ $d:path }{ generate-id(.) }">
                 <xsl:if test=" $r:IsMobile = 'true' ">
                     <xsl:attribute name="type">
