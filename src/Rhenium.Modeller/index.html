@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<div>
+<textarea id="model" style=" width:100%; height:300px "></textarea>
+</div>
+
+<div>
+<button onclick="modelSet()">Model set</button>
+
+<button onclick="viewElement('N001')">View N001</button>
+
+<button onclick="viewElement('N002')">View N002</button>
+</div>
+
+<script>
+
+function modelLoad()
+{
+   var m = document.getElementById( 'model' );
+   m.value = iface.Model;
+}
+
+function modelSet()
+{
+   var m = document.getElementById( 'model' );
+   iface.Model = m.value;
+}
+
+function viewElement( node )
+{
+   iface.NavigateToElement = node;
+}
+
+iface.IsReady = true;
+
+</script>
+
+</body>
+</html>

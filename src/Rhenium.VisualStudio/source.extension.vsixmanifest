@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="RheniumModeller.Transition.f4d6c296-d6c7-44b9-bba7-1758d86e253f" Version="1.0" Language="en-US" Publisher="Transition" />
+        <DisplayName>Rhenium Modeller</DisplayName>
+        <Description>Modeller for Rhenium.</Description>
+        <Icon>Resources\Package.ico</Icon>
+        <PreviewImage>Example.EditorWithToolbox.jpg</PreviewImage>
+    </Metadata>
+    <Installation InstalledByMsi="false">
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="14.0" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
+        <Dependency Id="Microsoft.VisualStudio.MPF.14.0" DisplayName="Visual Studio MPF 14.0" d:Source="Installed" Version="[14.0,15.0)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="Templates\EditorWithToolbox.vsdir" d:VsixSubPath="Templates" />
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="File" Path="Templates\Flow.ref" d:VsixSubPath="Templates" />
+    </Assets>
+</PackageManifest>
