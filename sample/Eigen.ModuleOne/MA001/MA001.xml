@@ -1,4 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <flow xmlns="urn:rhenium-flow">
-    
+    <meta>
+        <code>MA001</code>
+        <name>First process</name>
+    </meta>
+
+    <start>
+        <to nodeId="N001" event="start" />
+    </start>
+
+    <nodes>
+        <node code="N001">
+            <meta>
+                <name>First node</name>
+            </meta>
+
+            <transitions>
+                <to node="N002" event="success" />
+            </transitions>
+        </node>
+
+        <screen code="N002">
+            <meta>
+                <name>First screen</name>
+            </meta>
+
+            <transitions>
+                <to node="N001" event="previous" />
+                <to node="N003" event="ok" />
+                <to node="N003" event="next" />
+            </transitions>
+        </screen>
+
+        <node code="N003">
+            <meta>
+                <name>Second node</name>
+            </meta>
+
+            <transitions>
+                <to node="N004" event="success" />
+            </transitions>
+        </node>
+
+        <screen code="N004">
+            <meta>
+                <name>Second screen</name>
+            </meta>
+
+            <transitions>
+                <to node="N002" event="previous" />
+                <to node="N004" event="next" />
+            </transitions>
+        </screen>
+    </nodes>
 </flow>

@@ -81,6 +81,8 @@
     <Compile Include="ScreenDocument.cs" />
     <Compile Include="Story\ScreenNode.cs" />
     <Compile Include="Story\BusinessNode.cs" />
+    <Compile Include="Web\BpmQueueHandler.cs" />
+    <Compile Include="Web\BpmFlowHandler.cs" />
     <Compile Include="Web\FileFlowResolver.cs" />
     <Compile Include="Web\ScreenRenderer.cs" />
     <Compile Include="Web\FileRenderer.cs" />
@@ -88,12 +90,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\UiAssetHandler.cs" />
     <Compile Include="Xml\XmlExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Rhenium.Core\Rhenium.Core.csproj">
-      <Project>{8e46d307-5431-4b75-8cc7-77d69f0b6117}</Project>
-      <Name>Rhenium.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -104,7 +100,12 @@
       <LastGenOutput>Configuration.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Rhenium.Core\Rhenium.Core.csproj">
+      <Project>{8e46d307-5431-4b75-8cc7-77d69f0b6117}</Project>
+      <Name>Rhenium.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

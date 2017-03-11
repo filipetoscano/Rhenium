@@ -8,5 +8,13 @@ namespace Rhenium.Runtime.Handler
         {
             return R.NextBoolean();
         }
+
+
+        public string ToJson( object value )
+        {
+            bool b = (bool) value;
+
+            return b ? "true" : "false";
+        }
     }
 }

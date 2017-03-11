@@ -45,7 +45,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MA001\MA001.xml" />
     <EmbeddedResource Include="MA001\N004.xml" />
-    <EmbeddedResource Include="MA001\N002.xml" />
+    <EmbeddedResource Include="MA001\N002.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MA002\" />
@@ -55,6 +57,9 @@
       <Project>{8e46d307-5431-4b75-8cc7-77d69f0b6117}</Project>
       <Name>Rhenium.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MA001\N006.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

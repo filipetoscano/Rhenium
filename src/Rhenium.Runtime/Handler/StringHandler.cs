@@ -6,5 +6,11 @@
         {
             return "String #" + R.Next( 200 );
         }
+
+
+        public string ToJson( object value )
+        {
+            return (string) value;
+        }
     }
 }

@@ -102,6 +102,12 @@ namespace Rhenium.VisualStudio
         }
 
 
+        protected override void OnClose()
+        {
+            base.OnClose();
+        }
+
+
         /// <summary>
         /// This method is called when the pane is sited with a non null service provider.
         /// Here is where you can do all the initialization that requare access to

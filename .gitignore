@@ -13,3 +13,4 @@ sample/Eigen.UI/vnd/
 tests/**/bin/
 tests/**/obj/
 packages/
+**/project.lock.json

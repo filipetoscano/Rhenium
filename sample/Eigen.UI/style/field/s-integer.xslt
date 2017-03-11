@@ -37,6 +37,16 @@
                     <xsl:value-of select=" @d:value " />
                 </xsl:attribute>
 
+                <xsl:if test=" $r:IsMobile = 'true' ">
+                    <xsl:attribute name="type">
+                        <xsl:text>number</xsl:text>
+                    </xsl:attribute>
+
+                    <xsl:attribute name="pattern">
+                        <xsl:text>[0-9]*</xsl:text>
+                    </xsl:attribute>
+                </xsl:if>
+
                 <xsl:call-template name="s:placeholder" />
                 <xsl:call-template name="s:disabled" />
             </input>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<screen xmlns="urn:rhenium-screen"
+    xmlns:d="urn:rhenium-data"
+    xmlns:h="urn:rhenium-data-hint"
+    xmlns:l="urn:rhenium-localization"
+    xmlns:v="urn:rhenium-validation">
+
+    <canvas>
+        <actionGroup docked="true">
+            <action l:label="Previous" event="previous-screen" />
+        </actionGroup>
+    </canvas>
+</screen>

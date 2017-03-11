@@ -3,8 +3,7 @@
     xmlns:d="urn:rhenium-data"
     xmlns:h="urn:rhenium-data-hint"
     xmlns:l="urn:rhenium-localization"
-    xmlns:v="urn:rhenium-validation"
-    id="MA001_N002">
+    xmlns:v="urn:rhenium-validation">
 
     <canvas>
         <fieldset>
@@ -22,7 +21,12 @@
                     <v:range min="5" max="10" />
                 </currency>
 
-                <date l:label="Date" input="true" l:placeholder="When?" d:disabled="fbool" d:value="fdate">
+                <currency l:label="Reference Currency" input="true" l:placeholder="Money!" d:disabled="fbool" d:value="fcur" d:currency="fcurr">
+                    <v:required />
+                    <v:range min="5" max="10" />
+                </currency>
+
+                <date l:label="Date of Birth" input="true" l:placeholder="When?" d:disabled="fbool" d:value="fdate">
                     <v:required />
                     <v:range min="2016-01-01" max="2016-12-31" />
                     <v:workingDay />

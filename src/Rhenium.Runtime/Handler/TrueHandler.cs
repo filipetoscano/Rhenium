@@ -6,5 +6,11 @@
         {
             return true;
         }
+
+
+        public string ToJson( object value )
+        {
+            return "true";
+        }
     }
 }

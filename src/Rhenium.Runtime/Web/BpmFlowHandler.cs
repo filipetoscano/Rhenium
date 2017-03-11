@@ -4,7 +4,7 @@ using System.Web;
 
 namespace Rhenium.Runtime.Web
 {
-    public class FlowHandler : IHttpHandler
+    public class BpmFlowHandler : IHttpHandler
     {
         public void ProcessRequest( HttpContext context )
         {

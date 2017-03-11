@@ -6,5 +6,13 @@
         {
             return R.Next( 200 );
         }
+
+
+        public string ToJson( object value )
+        {
+            int v = (int) value;
+
+            return v.ToString();
+        }
     }
 }

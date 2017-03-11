@@ -2,4 +2,9 @@
 <flow>
     <code>MA002</code>
     <start>start</start>
+
+    <properties>
+        <add key="orc:storyboard" value="true" />
+        <add key="bpm:humanTask" value="true" />
+    </properties>
 </flow>

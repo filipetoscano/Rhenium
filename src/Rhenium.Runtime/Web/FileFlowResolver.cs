@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace Rhenium.Runtime.Web
 {
@@ -15,7 +16,7 @@ namespace Rhenium.Runtime.Web
 
             return new FlowResolveResult
             {
-                FlowCode = "MO001",
+                FlowCode = "MA001",
                 StartEvent = new NamedEvent( "start" )
             };
         }

@@ -3,8 +3,7 @@
     xmlns:d="urn:rhenium-data"
     xmlns:h="urn:rhenium-data-hint"
     xmlns:l="urn:rhenium-localization"
-    xmlns:v="urn:rhenium-validation"
-    id="MA001_N004">
+    xmlns:v="urn:rhenium-validation">
 
     <canvas>
         <table l:title="Table title">
@@ -24,7 +23,8 @@
         </repeater>
 
         <actionGroup docked="true">
-            <action l:label="Save record" event="ok" icon="save" />
+            <action l:label="Next" event="next-screen" />
+            <action l:label="Previous" event="previous-screen" />
         </actionGroup>
     </canvas>
 </screen>
