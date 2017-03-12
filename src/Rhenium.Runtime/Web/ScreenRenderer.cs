@@ -1,6 +1,5 @@
 ﻿using Platinum.Resolver;
 using System;
-using System.Web;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
@@ -9,9 +8,9 @@ using Newtonsoft.Json;
 
 namespace Rhenium.Runtime.Web
 {
-    public class ScreenRenderer : IRenderer<ScreenDocument>
+    public class ScreenRenderer //: IRenderer<ScreenDocument>
     {
-        public void Render( HttpContext context, ScreenDocument screen )
+        public void Render( object context, ScreenDocument screen )
         {
             #region Validations
 
@@ -53,39 +52,39 @@ namespace Rhenium.Runtime.Web
             /*
              * 
              */
-            string appPath = ToApplicationPath( context.Request );
+            //string appPath = ToApplicationPath( context.Request );
 
 
-            /*
-             * 
-             */
-            UrlResolver r2 = new UrlResolver();
+            ///*
+            // * 
+            // */
+            //UrlResolver r2 = new UrlResolver();
 
-            string ns = NS.R.NamespaceName;
+            //string ns = NS.R.NamespaceName;
 
-            XsltArgumentList args = new XsltArgumentList();
-            args.AddParam( "ApplicationPath", ns, appPath );
-            args.AddParam( "ScreenData", NS.D.NamespaceName, jsonData );
+            //XsltArgumentList args = new XsltArgumentList();
+            //args.AddParam( "ApplicationPath", ns, appPath );
+            //args.AddParam( "ScreenData", NS.D.NamespaceName, jsonData );
 
-            context.Response.StatusCode = 200;
-            context.Response.ContentType = "text/html";
+            //context.Response.StatusCode = 200;
+            //context.Response.ContentType = "text/html";
 
-            XmlWriterSettings xws = xslt.OutputSettings.Clone();
-            xws.Indent = AppConfiguration.Get<bool>( "XsltIndent" );
+            //XmlWriterSettings xws = xslt.OutputSettings.Clone();
+            //xws.Indent = AppConfiguration.Get<bool>( "XsltIndent" );
 
-            using ( XmlWriter xw = XmlWriter.Create( context.Response.OutputStream, xws ) )
-            {
-                xslt.Transform( screen.Screen.CreateNavigator(), args, xw, r2 );
-            }
+            //using ( XmlWriter xw = XmlWriter.Create( context.Response.OutputStream, xws ) )
+            //{
+            //    xslt.Transform( screen.Screen.CreateNavigator(), args, xw, r2 );
+            //}
         }
 
 
-        private static string ToApplicationPath( HttpRequest request )
-        {
-            if ( request.ApplicationPath.EndsWith( "/", StringComparison.Ordinal ) == true )
-                return request.ApplicationPath;
-            else
-                return request.ApplicationPath + "/";
-        }
+        //private static string ToApplicationPath( HttpRequest request )
+        //{
+        //    if ( request.ApplicationPath.EndsWith( "/", StringComparison.Ordinal ) == true )
+        //        return request.ApplicationPath;
+        //    else
+        //        return request.ApplicationPath + "/";
+        //}
     }
 }

@@ -2,8 +2,8 @@
 using System.Runtime.InteropServices;
 
 // General information
-[assembly: AssemblyTitle( "Rhenium Core" )]
-[assembly: AssemblyDescription( "" )]
+[assembly: AssemblyTitle( "Rhenium Owin" )]
+[assembly: AssemblyDescription( "Runs Rhenium applications under Owin." )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "Transition" )]
 [assembly: AssemblyProduct( "Rhenium" )]
@@ -13,4 +13,4 @@ using System.Runtime.InteropServices;
 
 // Additional information
 [assembly: ComVisible( false )]
-[assembly: Guid( "fd971a20-7e5d-4656-96e8-5ab81dcaf4bb" )]
+[assembly: Guid( "0c7f8b1a-f542-4609-81f0-4a576e712d75" )]

@@ -1,12 +1,10 @@
 ﻿using Platinum.Resolver;
-using Platinum.Web;
 using System;
 using System.IO;
-using System.Web;
 
 namespace Rhenium.Runtime.Web
 {
-    public class UiAssetHandler : IHttpHandler
+    public class UiAssetHandler //: IHttpHandler
     {
         public bool IsReusable
         {
@@ -14,69 +12,69 @@ namespace Rhenium.Runtime.Web
         }
 
 
-        public void ProcessRequest( HttpContext context )
+        public void ProcessRequest( object context )
         {
-            /*
-             * 
-             */
-            string extension = GetExtension( context.Request );
+            ///*
+            // * 
+            // */
+            //string extension = GetExtension( context.Request );
 
-            if ( IsAllowedExtension( extension ) == false )
-            {
-                context.Response.StatusCode = 404;
-                context.Response.End();
-                return;
-            }
+            //if ( IsAllowedExtension( extension ) == false )
+            //{
+            //    context.Response.StatusCode = 404;
+            //    context.Response.End();
+            //    return;
+            //}
 
 
-            /*
-             * 
-             */
-            string uri = string.Concat(
-                "re://",
-                context.Request.AppRelativeCurrentExecutionFilePath.Substring( 6 ),
-                context.Request.PathInfo );
+            ///*
+            // * 
+            // */
+            //string uri = string.Concat(
+            //    "re://",
+            //    context.Request.AppRelativeCurrentExecutionFilePath.Substring( 6 ),
+            //    context.Request.PathInfo );
 
-            UrlResolver res = new UrlResolver();
-            Uri theUri = res.ResolveUri( null, uri );
+            //UrlResolver res = new UrlResolver();
+            //Uri theUri = res.ResolveUri( null, uri );
 
             
-            /*
-             * 
-             */
-            Stream stream;
+            ///*
+            // * 
+            // */
+            //Stream stream;
 
-            try
-            {
-                stream = res.GetEntity( theUri );
-            }
-            catch ( FileNotFoundException )
-            {
-                context.Response.StatusCode = 404;
-                context.Response.End();
-                return;
-            }
+            //try
+            //{
+            //    stream = res.GetEntity( theUri );
+            //}
+            //catch ( FileNotFoundException )
+            //{
+            //    context.Response.StatusCode = 404;
+            //    context.Response.End();
+            //    return;
+            //}
 
-            if ( stream == null )
-            {
-                context.Response.StatusCode = 404;
-                context.Response.End();
-                return;
-            }
+            //if ( stream == null )
+            //{
+            //    context.Response.StatusCode = 404;
+            //    context.Response.End();
+            //    return;
+            //}
 
 
-            /*
-             * 
-             */
-            if ( extension == ".woff2" )
-                extension = ".woff";
+            ///*
+            // * 
+            // */
+            //if ( extension == ".woff2" )
+            //    extension = ".woff";
 
-            context.Response.StatusCode = 200;
-            context.Response.ContentType = MimeTypes.List[ extension.Substring( 1 ) ];
+            //context.Response.StatusCode = 200;
+            //context.Response.ContentType = MimeTypes.List[ extension.Substring( 1 ) ];
 
-            stream.CopyTo( context.Response.OutputStream );
-            stream.Flush();
-            stream.Dispose();
+            //stream.CopyTo( context.Response.OutputStream );
+            //stream.Flush();
+            //stream.Dispose();
         }
 
 
@@ -110,10 +108,11 @@ namespace Rhenium.Runtime.Web
         }
 
 
-        private string GetExtension( HttpRequest request )
+        private string GetExtension( object request )
         {
-            int ix = request.PathInfo.LastIndexOf( '.' );
-            return request.PathInfo.Substring( ix );
+            throw new NotImplementedException();
+            // int ix = request.PathInfo.LastIndexOf( '.' );
+            // return request.PathInfo.Substring( ix );
         }
     }
 }

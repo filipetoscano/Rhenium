@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace Rhenium
+﻿namespace Rhenium
 {
     public interface IRenderer
     {
@@ -8,6 +6,6 @@ namespace Rhenium
 
     public interface IRenderer<T> : IRenderer
     {
-        void Render( HttpContext context, T data );
+        //void Render( HttpContext context, T data );
     }
 }

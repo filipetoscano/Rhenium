@@ -1,12 +1,27 @@
 ﻿using Platinum.Resolver;
 using System;
 using System.IO;
-using System.Web;
 
 namespace Rhenium.Runtime.Asset
 {
     public class RheniumResolver : IUrlResolver
     {
+        private string _applicationPath;
+
+
+        public RheniumResolver( string applicationPath )
+        {
+            #region Validations
+
+            if ( applicationPath == null )
+                throw new ArgumentNullException( nameof( applicationPath ) );
+
+            #endregion
+
+            _applicationPath = applicationPath;
+        }
+
+
         public Uri ResolveUri( Uri baseUri, string relativeUri )
         {
             #region Validations
@@ -23,7 +38,7 @@ namespace Rhenium.Runtime.Asset
 
             if ( config.ResolveUsing == ResolverMethod.FileSystem )
             {
-                string p1 = Path.Combine( HttpContext.Current.Request.PhysicalApplicationPath, sconfig.Directory );
+                string p1 = Path.Combine( null, sconfig.Directory ); //HttpContext.Current.Request.PhysicalApplicationPath, sconfig.Directory );
                 string p2 = Path.Combine( p1, "." + theUri.AbsolutePath.Replace( '/', Path.DirectorySeparatorChar ) );
 
                 return new Uri( p2, UriKind.Absolute );

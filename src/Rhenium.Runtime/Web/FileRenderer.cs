@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Web;
 
 namespace Rhenium.Runtime.Web
 {
     public class FileRenderer : IRenderer<FileDocument>
     {
-        public void Render( HttpContext context, FileDocument data )
+        public void Render( object context, FileDocument data )
         {
             #region Validations
 
@@ -17,11 +16,11 @@ namespace Rhenium.Runtime.Web
 
             #endregion
 
-            context.Response.StatusCode = 200;
-            context.Response.ContentType = "application/octet-stream";
-            context.Response.Headers.Add( "Content-Disposition", "attachment; filename=" + data.Name );
+            // context.Response.StatusCode = 200;
+            // context.Response.ContentType = "application/octet-stream";
+            // context.Response.Headers.Add( "Content-Disposition", "attachment; filename=" + data.Name );
 
-            context.Response.BinaryWrite( data.Content );
+            // context.Response.BinaryWrite( data.Content );
         }
     }
 }
